@@ -1,0 +1,111 @@
+--> git config --global user.name "mehul"
+--> git config --global user.email "my@mymail.com"
+--> git config --global --list
+
+  -- global | --local | --file | --system
+
+--> git  --help
+
+--> git init
+--> git log
+
+.gitignore file -: to ignore the folder or files
+
+- States of file / folder : modified, staged, committed
+
+--> git add filename   -: to add file in staging area , cmd can be used multiple times
+--> git add .   -: to add all files and folders
+--> git add -A  -: to add all files and folders
+--> git remote add origin http://github.com/my  -: to add cloud hosting url
+    origin -: Remote name
+
+--> git remote -v  -:  to view remote configuration
+
+--> git push -u origin master  -:  pushing changes on remote for first time
+    -u | --set-upstream (upstream) -:  required for first time to make sync 
+
+--> git push origin master -: to push changes to remote(origin) on cloud //every commits
+--> git branch -a  // to view all branches
+--> git log --oneline  // to view logs in one line
+
+--> git checkout -b development   // -b: to create development branch if not exist
+--> git checkout master || git checkout branchname   // to switch between branches
+--> git push -u origin development    //add branch on remote
+--> master(branch_location) --> git merge development  (to merge development branch changes into master (branch location))
+
+GIT COMMITS :
+1. Fast forward -: No new commits (if master has not been changed by someone)
+2. Recursive -: fresh new commits (if master has been changed by someone)
+
+--> git push   // to push changes on remote
+--> git tag -a R1.0 -m "Release no 1.0"  // Creating release
+--> git show R1.0   // to view about Release 
+--> git push origin R1.0  // to push release
+--> git checkout -b iss/1 R1.0  // to get checkout from R1.0 by creating new branch iss/1 
+--> git diff filename   // to see the difference over local files & origin master file
+--> git fetch   // to fetch all the changes from remote but only works for 'origin/master' branch which is hidden
+--> git merge master    // to merge with remote changes after git fetch
+--> git push origin master
+
+--> git pull || (git fetch + git merge)   // fetch and merge two cmds
+
+--> git rebase  // to rebase, get all from remote and rebasing it (commits id gets changed and it is linear)
+--> dev(brach) --> git rebase master 
+
+--> git config --global alias.lg "log --oneline"  // to add aliases 
+--> git lg
+
+--> git reset --hard a5af117  // a5... is a remote commit id
+
+RESET : --mixed (default) | --soft | --hard  // reset will create new commits id
+--> git reset f81a59g   // bring changes in unstage areas
+--> git reset --soft f81a59g  //bring changes back in staged
+--> git reset --hard f81a58g  // changes get lost from local
+--> git reset HEAD filename   //  to remove file from staged areas
+
+Stash the local changes : 
+--> git stash 
+--> git stash save --keep-index
+--> git pull
+--> git stash pop
+--> git stash --list
+--> git stash apply stash@{0}
+
+FORK -: To work on different owner repository
+-- git clone + git remote add "myRepo" + git push
+-- clone from the another user to our repo and we can add our changes and then ask for pull request to owner
+
+Cherry: 
+--> git cherry -v development  // will show all the commits which are not there in development branch
+--> git checkout development
+--> git cherry-pick <commit-id>
+
+--> git clean -f  // to remove untracked files
+--> git clean -fd  // to remove untracked files and folders
+--> git clean -nfd // list of all which will be removed
+
+--> git checkout /filename   // to checkout file from origin master like replace with no change
+--> git commit --amend
+--> git commit --amend --no-edit
+--> git reset HEAD filename   //  to remove file from staged areas
+
+--> git bisect // Use binary search to find the commit that introduced a bug 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
